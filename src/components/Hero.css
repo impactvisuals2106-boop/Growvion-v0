@@ -1,0 +1,121 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  top: -10%;
+  left: -10%;
+  background: var(--accent-1);
+}
+
+.glow-2 {
+  bottom: -10%;
+  right: -10%;
+  background: var(--accent-3);
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.pulsing-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-2);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(168, 85, 247, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+}
+
+.hero-title {
+  font-size: var(--fs-display);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  font-size: var(--fs-md);
+  color: hsl(var(--text-secondary));
+  margin-bottom: 3.5rem;
+  max-width: 650px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+.badge-icon {
+  color: hsl(var(--accent-2));
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  padding: 1.2rem 2.5rem;
+  font-size: var(--fs-base);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

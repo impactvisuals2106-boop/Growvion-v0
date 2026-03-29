@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Portal | Impact Visuals</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Styles (Reuse main style) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Admin Specific Overrides */
+        body {
+            padding-top: 0;
+        }
+
+        /* No fixed header overlap needed for login */
+
+        .admin-login-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-box {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 50px rgba(0, 112, 243, 0.2);
+        }
+
+        .dashboard-container {
+            display: none;
+            /* Hidden by default */
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(17, 17, 17, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .data-table-container {
+            background: rgba(17, 17, 17, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-action {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            background: #ff4757;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .btn-action:hover {
+            opacity: 0.8;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            border-color: white;
+            color: white;
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2ed573;
+            color: black;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            transform: translateY(100px);
+            transition: 0.3s;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reuse Global Background -->
+    <div class="fixed-bg">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <!-- 1. LOGIN SCREEN -->
+    <div class="container admin-login-container" id="loginScreen">
+        <div class="login-box">
+            <h2 style="margin-bottom: 1rem;">Owner Access</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Enter your PIN to view dashboard</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="password" id="pinInput" placeholder="Enter PIN (1234)"
+                        style="text-align: center; letter-spacing: 5px; font-size: 1.2rem;" required>
+                </div>
+                <button type="submit" class="submit-btn"
+                    style="background: var(--accent-primary); color: white;">Login</button>
+            </form>
+            <p id="loginError" style="color: #ff4757; margin-top: 1rem; display: none;">Incorrect PIN</p>
+        </div>
+    </div>
+
+    <!-- 2. DASHBOARD SCREEN -->
+    <div class="container dashboard-container" id="dashboardScreen">
+        <div class="dashboard-header">
+            <div>
+                <h1>Owner <span class="text-accent">Dashboard</span></h1>
+                <p style="color: var(--text-secondary);">Manage your leads and inquiries</p>
+            </div>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalLeads">0</div>
+                <div style="color: var(--text-secondary);">Total Leads</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="todayLeads">0</div>
+                <div style="color: var(--text-secondary);">New Today</div>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <h3 style="margin-bottom: 1.5rem;">Recent Inquiries</h3>
+        <div class="data-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="leadsTableBody">
+                    <!-- Data injected by JS -->
+                </tbody>
+            </table>
+            <div id="noDataMsg" style="text-align: center; padding: 3rem; color: var(--text-secondary); display: none;">
+                No inquiries yet.
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
