@@ -12,7 +12,7 @@ const Services = () => {
       description: 'Elevate your brand with data-driven visual marketing strategies that convert visibility into growth.',
       icon: <img src={ivLogo} alt="Impact Visuals Logo" className="service-logo" />,
       status: 'active',
-      link: 'https://website-v0-xi.vercel.app/',
+      link: 'https://impactvisuals.growvion.app/',
       iconUrl: true
     },
     {
