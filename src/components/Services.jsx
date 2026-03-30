@@ -17,20 +17,20 @@ const Services = () => {
     },
     {
       id: 2,
-      title: 'Project Nexus',
-      subtitle: 'Tech Innovations',
-      description: 'A revolutionary new platform currently under development. Stay tuned as we build the future.',
+      title: 'COMING SOON',
+      // subtitle: 'Tech Innovations',
+      // description: 'A revolutionary new platform currently under development. Stay tuned as we build the future.',
       icon: <Rocket size={40} className="service-icon-lucide" />,
-      status: 'coming_soon',
+      // status: 'coming_soon',
       link: '#'
     },
     {
       id: 3,
-      title: 'Vanguard Suite',
-      subtitle: 'Enterprise Solutions',
-      description: 'Comprehensive tools exclusively built for tomorrow’s leaders. Our team is finalizing the architecture.',
+      title: 'COMING SOON',
+     // subtitle: 'Enterprise Solutions',
+      // description: 'Comprehensive tools exclusively built for tomorrow’s leaders. Our team is finalizing the architecture.',
       icon: <Zap size={40} className="service-icon-lucide" />,
-      status: 'coming_soon',
+      // status: 'coming_soon',
       link: '#'
     }
   ];
