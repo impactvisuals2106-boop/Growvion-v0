@@ -17,7 +17,7 @@ const Footer = () => {
               className="logo logo-footer"
               whileHover={{ scale: 1.05 }}
             >
-              <img src="/src/assets/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
+              <img src="/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
             </motion.a>
             <p className="footer-description">
               A forward-thinking umbrella startup launching the next generation of innovative services. We redefine standards through excellence and vision.
