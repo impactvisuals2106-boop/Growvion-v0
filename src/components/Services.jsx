@@ -9,7 +9,7 @@ const Services = () => {
       id: 1,
       title: 'Impact Visuals',
       subtitle: 'Marketing Agency',
-      description: 'Elevate your brand with data-driven visual marketing strategies that convert visibility into growth.',
+      description: 'Elevate your brand with visual marketing strategies that convert visibility into growth.',
       icon: <img src={ivLogo} alt="Impact Visuals Logo" className="service-logo" />,
       status: 'active',
       link: 'https://impactvisuals.growvion.app/',
