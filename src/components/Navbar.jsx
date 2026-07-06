@@ -11,7 +11,7 @@ const Navbar = ({ isScrolled }) => {
     >
       <div className="container nav-container">
         <a href="#" className="logo">
-          Grow<span className="text-gradient">vion</span>
+          <img src="/src/assets/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
         </a>
         
         <nav className="nav-links">

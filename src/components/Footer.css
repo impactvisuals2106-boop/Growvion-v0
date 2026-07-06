@@ -19,9 +19,14 @@
 }
 
 .footer-brand .logo {
-  font-size: var(--fs-2xl);
   margin-bottom: 1.5rem;
   display: inline-block;
+}
+
+.logo-footer .logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
 }
 
 .footer-description {

@@ -37,10 +37,19 @@
 
 .logo {
   font-family: var(--font-heading);
-  font-size: var(--fs-xl);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  color: hsl(var(--text-primary));
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.navbar.scrolled .logo-img {
+  height: 40px;
 }
 
 .nav-links {
