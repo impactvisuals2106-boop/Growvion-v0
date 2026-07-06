@@ -58,7 +58,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -66,17 +66,17 @@ const Contact = () => {
         >
           <div className="contact-grid">
             <div className="contact-info">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
                 <h2 className="section-title">Let's <span className="text-gradient">Elevate</span> Your Brand</h2>
                 <p className="section-subtitle">Have a vision? We have the tools and expertise to bring it to life. Reach out and let's start something extraordinary.</p>
-                
+
                 <div className="contact-methods">
                   {contactMethods.map((method, index) => (
-                    <motion.a 
+                    <motion.a
                       key={index}
                       href={method.link}
                       className="contact-method-item"
@@ -97,7 +97,7 @@ const Contact = () => {
             </div>
 
             <div className="contact-form-container">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -115,7 +115,7 @@ const Contact = () => {
                     <input type="email" placeholder="Your Email" />
                   </div>
                   <div className="input-group">
-                    <textarea placeholder="Tell us about your project" rows="4"></textarea>
+                    <textarea placeholder="Tell us about your Business & Idea" rows="4"></textarea>
                   </div>
                   <button type="submit" className="btn-primary w-full">
                     Send Message <Send size={18} />
