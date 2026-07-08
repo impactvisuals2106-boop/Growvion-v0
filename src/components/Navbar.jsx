@@ -10,7 +10,7 @@ const Navbar = ({ isScrolled }) => {
       className={`navbar ${isScrolled ? 'scrolled' : ''}`}
     >
       <div className="container nav-container">
-        <a href="#" className="logo">
+        <a href="#" className="logo" data-track="Navbar: Brand Logo">
           <img src="/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
         </a>
         
@@ -19,6 +19,7 @@ const Navbar = ({ isScrolled }) => {
             <motion.a 
               key={item}
               href={`#${item.toLowerCase()}`}
+              data-track={`Navbar Link: ${item}`}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 + i * 0.1 }}
@@ -31,6 +32,7 @@ const Navbar = ({ isScrolled }) => {
         <motion.a 
           href="#contact" 
           className="btn-primary"
+          data-track="Navbar CTA: Get Started"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8 }}

@@ -74,10 +74,10 @@ const Hero = () => {
           </motion.p>
           
           <motion.div variants={itemVariants} className="hero-actions">
-            <a href="#services" className="btn-primary btn-large">
+            <a href="#services" className="btn-primary btn-large" data-track='Hero CTA: Explore Our Services'>
               Explore Our Services <ArrowRight size={20} />
             </a>
-            <a href="#contact" className="btn-secondary btn-large glass-panel">
+            <a href="#contact" className="btn-secondary btn-large glass-panel" data-track='Hero CTA: Get in Touch'>
               Get in Touch
             </a>
           </motion.div>

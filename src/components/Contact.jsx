@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Camera, Users, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Camera, Users, Send, MessageCircle, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import tracker from '../analytics/tracker';
 import './Contact.css';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
+  const [errorMsg, setErrorMsg] = useState('');
+
   const contactMethods = [
     {
       icon: <Mail size={24} />,
@@ -55,6 +61,52 @@ const Contact = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMsg('Please fill in all required fields (Name, Email, Message).');
+      setFormStatus('error');
+      return;
+    }
+
+    setFormStatus('loading');
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: tracker.sessionId,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setErrorMsg(data.error || 'Failed to submit form. Please try again.');
+        setFormStatus('error');
+      }
+    } catch (err) {
+      console.error('[Forms Submission Network Error]', err);
+      setErrorMsg('A network error occurred. Please try again later.');
+      setFormStatus('error');
+    }
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -82,6 +134,7 @@ const Contact = () => {
                       className="contact-method-item"
                       variants={itemVariants}
                       whileHover={{ x: 10 }}
+                      data-track={`Contact: ${method.title} Link Click`}
                     >
                       <div className="method-icon" style={{ color: `hsl(${method.color})` }}>
                         {method.icon}
@@ -105,22 +158,92 @@ const Contact = () => {
               >
                 <div className="form-header">
                   <MessageCircle className="text-gradient" />
-                  <h3>Quick Inquiry</h3>
+                  <h3>Quick Feedback</h3>
                 </div>
-                <form className="contact-form">
-                  <div className="input-group">
-                    <input type="text" placeholder="Your Name" />
-                  </div>
-                  <div className="input-group">
-                    <input type="email" placeholder="Your Email" />
-                  </div>
-                  <div className="input-group">
-                    <textarea placeholder="Tell us about your Business & Idea" rows="4"></textarea>
-                  </div>
-                  <button type="submit" className="btn-primary w-full">
-                    Send Message <Send size={18} />
-                  </button>
-                </form>
+
+                {formStatus === 'success' ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="form-success-card"
+                  >
+                    <CheckCircle2 size={44} className="success-icon" />
+                    <h4>Thank You!</h4>
+                    <p>Your business query and feedback has been received. Our team will contact you shortly.</p>
+                    <button
+                      onClick={() => setFormStatus('idle')}
+                      className="btn-secondary btn-small w-full"
+                    >
+                      Send Another Message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="contact-form">
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Your Name *"
+                        required
+                        disabled={formStatus === 'loading'}
+                      />
+                    </div>
+                    <div className="input-group">
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Your Email *"
+                        required
+                        disabled={formStatus === 'loading'}
+                      />
+                    </div>
+                    <div className="input-group">
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Phone Number"
+                        disabled={formStatus === 'loading'}
+                      />
+                    </div>
+                    <div className="input-group">
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Please give your feedback about our growvion *"
+                        rows="4"
+                        required
+                        disabled={formStatus === 'loading'}
+                      ></textarea>
+                    </div>
+
+                    {formStatus === 'error' && (
+                      <div className="form-error-banner">
+                        <AlertCircle size={16} />
+                        <span>{errorMsg}</span>
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      className="btn-primary w-full"
+                      disabled={formStatus === 'loading'}
+                      data-track="Contact Form: Submit Button"
+                    >
+                      {formStatus === 'loading' ? (
+                        <>Sending Request <Loader2 size={18} className="animate-spin" /></>
+                      ) : (
+                        <>Send Message <Send size={18} /></>
+                      )}
+                    </button>
+                  </form>
+                )}
               </motion.div>
             </div>
           </div>

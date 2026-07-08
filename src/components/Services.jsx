@@ -96,7 +96,7 @@ const Services = () => {
                     <h4 className="service-subtitle">{service.subtitle}</h4>
                     <p className="service-description">{service.description}</p>
 
-                    <a href={service.link} target="_blank" rel="noopener noreferrer" className="service-link btn-primary">
+                    <a href={service.link} target="_blank" rel="noopener noreferrer" className="service-link btn-primary" data-track="Service Card: Impact Visuals link">
                       Visit Site <ExternalLink size={16} />
                     </a>
                   </>

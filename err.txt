@@ -1,0 +1,65 @@
+﻿==================================================
+STARTING VISITOR ANALYTICS LOCAL VERIFICATION SUITE
+==================================================
+
+[Test 1] Testing IP Hashing Format...
+- IP: 127.0.0.1
+- Salt: verify-auth-salt-token-key-1234
+- SHA-256 Hash Output: a787a8d23bfc86193da3700714e16869f1dd559e3ee12bdf13dfc35302381e25
+Γ£ô Success: Hash is a valid 64-character SHA-256 hex string.
+
+[Test 2] Checking serverless functions module imports...
+node : Γ£ù Failure 
+importing serverless 
+modules: 
+ReferenceError: 
+require is not defined
+At line:1 char:1
++ node 
+verify_analytics.cjs 
+*>&1 | Out-File 
+-Encoding utf8 err.txt
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (Γ£ù Failure i   
+ mp... is not defin    
+ed:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+    at file:///D:/Start
+%20up/Growvion-v0/api/t
+rack.js:1:78
+    at 
+ModuleJobSync.runSync (
+node:internal/modules/e
+sm/module_job:400:35)
+    at ModuleLoader.imp
+ortSyncForRequire (node
+:internal/modules/esm/l
+oader:427:47)
+    at loadESMFromCJS (
+node:internal/modules/c
+js/loader:1561:24)
+    at Module._compile 
+(node:internal/modules/
+cjs/loader:1712:5)
+    at Object..js (node
+:internal/modules/cjs/l
+oader:1895:10)
+    at Module.load (nod
+e:internal/modules/cjs/
+loader:1465:32)
+    at Function._load (
+node:internal/modules/c
+js/loader:1282:12)
+    at TracingChannel.t
+raceSync (node:diagnost
+ics_channel:322:14)
+    at wrapModuleLoad (
+node:internal/modules/c
+js/loader:235:24)

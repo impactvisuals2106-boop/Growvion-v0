@@ -15,6 +15,7 @@ const Footer = () => {
             <motion.a 
               href="#" 
               className="logo logo-footer"
+              data-track="Footer: Brand Logo"
               whileHover={{ scale: 1.05 }}
             >
               <img src="/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
@@ -28,24 +29,24 @@ const Footer = () => {
             <div className="footer-col">
               <h4>Services</h4>
               <ul>
-                <li><a href="#">Impact Visuals</a></li>
-                <li><a href="#">Project Nexus</a></li>
-                <li><a href="#">Vanguard Suite</a></li>
+                <li><a href="#" data-track="Footer Link: Service - Impact Visuals">Impact Visuals</a></li>
+                <li><a href="#" data-track="Footer Link: Service - Project Nexus">Project Nexus</a></li>
+                <li><a href="#" data-track="Footer Link: Service - Vanguard Suite">Vanguard Suite</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>Company</h4>
               <ul>
-                <li><a href="#home">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#">Careers</a></li>
+                <li><a href="#home" data-track="Footer Link: Company - About Us">About Us</a></li>
+                <li><a href="#contact" data-track="Footer Link: Company - Contact">Contact</a></li>
+                <li><a href="#" data-track="Footer Link: Company - Careers">Careers</a></li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>Legal</h4>
               <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#" data-track="Footer Link: Legal - Privacy Policy">Privacy Policy</a></li>
+                <li><a href="#" data-track="Footer Link: Legal - Terms">Terms of Service</a></li>
               </ul>
             </div>
           </div>
@@ -57,16 +58,17 @@ const Footer = () => {
           </div>
           
           <div className="social-links">
-            <motion.a href="#" whileHover={{ y: -5, color: 'hsl(var(--accent-1))' }} aria-label="Twitter">
+            <motion.a href="#" data-track="Footer Social: Twitter X" whileHover={{ y: -5, color: 'hsl(var(--accent-1))' }} aria-label="Twitter">
               <X size={20} />
             </motion.a>
-            <motion.a href="#" whileHover={{ y: -5, color: 'hsl(var(--accent-2))' }} aria-label="LinkedIn">
+            <motion.a href="#" data-track="Footer Social: LinkedIn" whileHover={{ y: -5, color: 'hsl(var(--accent-2))' }} aria-label="LinkedIn">
               <Users size={20} />
             </motion.a>
             <motion.a 
               href="https://www.instagram.com/growvion.india?igsh=MWVxOTk3azh6cXZ0YQ==" 
               target="_blank" 
               rel="noopener noreferrer" 
+              data-track="Footer Social: Instagram"
               whileHover={{ y: -5, color: 'hsl(var(--accent-3))' }} 
               aria-label="Instagram"
             >
@@ -76,6 +78,7 @@ const Footer = () => {
 
           <motion.button 
             className="scroll-top-btn"
+            data-track="Footer Interaction: Scroll to Top"
             onClick={scrollToTop}
             whileHover={{ y: -5 }}
             whileTap={{ scale: 0.9 }}
