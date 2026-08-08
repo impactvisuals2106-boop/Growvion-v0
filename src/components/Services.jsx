@@ -17,7 +17,7 @@ const Services = () => {
     },
     {
       id: 2,
-      title: 'COMING SOON',
+      title: 'READY TO WITNESS ?',
       // subtitle: 'Tech Innovations',
       // description: 'A revolutionary new platform currently under development. Stay tuned as we build the future.',
       icon: <Rocket size={40} className="service-icon-lucide" />,

@@ -33,7 +33,7 @@ export const AnalyticsProvider = ({ children }) => {
                 // Scenario B: Automatically track common links or button interactions
                 const tagName = target.tagName;
                 const isFormSubmit = target.type === 'submit';
-                
+
                 if (tagName === 'BUTTON' || tagName === 'A' || isFormSubmit) {
                     // Build logical descriptors
                     let label = target.innerText || target.getAttribute('aria-label') || target.alt || '';

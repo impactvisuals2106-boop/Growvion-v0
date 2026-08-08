@@ -119,7 +119,7 @@ class GrowvionTracker {
                 body: JSON.stringify(payload),
                 keepalive: true // Crucial to ensure unload telemetry packets arrive
             };
-            
+
             const res = await fetch(apiUrl, opts);
             return await res.json();
         } catch (e) {
@@ -214,7 +214,7 @@ class GrowvionTracker {
             const b = document.body;
             const st = 'scrollTop';
             const sh = 'scrollHeight';
-            
+
             const percent = Math.round(
                 ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100
             );
