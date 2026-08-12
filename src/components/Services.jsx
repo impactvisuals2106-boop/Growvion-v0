@@ -12,7 +12,7 @@ const Services = () => {
       description: 'Elevate your brand with visual marketing strategies that convert visibility into growth.',
       icon: <img src={ivLogo} alt="Impact Visuals Logo" className="service-logo" />,
       status: 'active',
-      link: 'https://impactvisuals.growvion.app/',
+      link: 'https://impactvisuals.growvex.tech/',
       iconUrl: true
     },
     {
@@ -27,7 +27,7 @@ const Services = () => {
     {
       id: 3,
       title: 'COMING SOON',
-     // subtitle: 'Enterprise Solutions',
+      // subtitle: 'Enterprise Solutions',
       // description: 'Comprehensive tools exclusively built for tomorrow’s leaders. Our team is finalizing the architecture.',
       icon: <Zap size={40} className="service-icon-lucide" />,
       // status: 'coming_soon',
@@ -56,7 +56,7 @@ const Services = () => {
   return (
     <section id="services" className="services">
       <div className="container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -67,7 +67,7 @@ const Services = () => {
           <p className="section-subtitle">Discover the portfolio of cutting-edge solutions incubated under the Growvion ecosystem.</p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="services-grid"
           variants={containerVariants}
           initial="hidden"
@@ -75,8 +75,8 @@ const Services = () => {
           viewport={{ once: true }}
         >
           {services.map((service) => (
-            <motion.div 
-              key={service.id} 
+            <motion.div
+              key={service.id}
               variants={cardVariants}
               whileHover={{ scale: 1.02 }}
               className={`service-card glass-panel ${service.status}`}
