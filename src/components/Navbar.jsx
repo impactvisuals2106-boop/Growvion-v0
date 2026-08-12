@@ -11,7 +11,7 @@ const Navbar = ({ isScrolled }) => {
     >
       <div className="container nav-container">
         <a href="#" className="logo" data-track="Navbar: Brand Logo">
-          <img src="/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
+          <img src="/Growvex-logo-white.png" alt="Growvex" className="logo-img" />
         </a>
         
         <nav className="nav-links">

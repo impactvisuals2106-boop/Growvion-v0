@@ -3,7 +3,7 @@ import { supabase } from "../lib/supabase";
 export async function createVisitor() {
   // Gracefully handle case if Supabase client is not initialized/configured
   if (!supabase) {
-    console.warn("[Growvion visitorService]: Supabase client unavailable. Skipping visitor registration.");
+    console.warn("[Growvex visitorService]: Supabase client unavailable. Skipping visitor registration.");
     return;
   }
 

@@ -1,5 +1,5 @@
 -- =========================================================================
--- GROWVION ANALYTICS DATABASE SCHEMA
+-- GROWVEX ANALYTICS DATABASE SCHEMA
 -- This script contains all necessary table definitions, indexes, and constraints
 -- to support a production-grade Web Analytics & Business Intelligence System.
 -- Copy and paste this script directly into your Supabase SQL Editor.
@@ -73,7 +73,7 @@ COMMENT ON TABLE public.analytics_clicks IS 'Logs user click interactions with c
 
 -- -------------------------------------------------------------------------
 -- 4. Table: analytics_contact_submissions
--- Stores records from the Growvion contact feedback form.
+-- Stores records from the Growvex contact feedback form.
 -- -------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.analytics_contact_submissions (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

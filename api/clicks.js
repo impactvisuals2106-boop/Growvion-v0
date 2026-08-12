@@ -31,7 +31,7 @@ export default async function handler(req, res) {
         }
 
         // Resolve service context slug
-        const slug = serviceSlug || 'growvion';
+        const slug = serviceSlug || 'growvex';
         const { data: service, error: svcError } = await supabase
             .from('services')
             .select('id')
@@ -94,7 +94,7 @@ export default async function handler(req, res) {
                 ? `${sessInfo.city || 'Unknown City'}, ${sessInfo.country || 'Unknown Country'} (Device: ${sessInfo.device_type}, Browser: ${sessInfo.browser})`
                 : 'Unknown Session Context';
 
-            const subject = `🎬 Growvion Clicks Alert - Impact Visuals Clicked`;
+            const subject = `🎬 Growvex Clicks Alert - Impact Visuals Clicked`;
             const bodyText = `A visitor just clicked on "Impact Visuals" link on page "${pagePath || '/'}".
 Session Context:
 - Session ID: ${sessionId}

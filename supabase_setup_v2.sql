@@ -1,5 +1,5 @@
 -- =========================================================================
--- GROWVION ANALYTICS PLATFORM SCHEMA (V2) - PRODUCTION READY
+-- GROWVEX ANALYTICS PLATFORM SCHEMA (V2) - PRODUCTION READY
 -- Multi-Tenant, High Performance, Secure PostgreSQL Database Setup.
 -- Copy and paste this script directly into your Supabase SQL Editor.
 -- =========================================================================
@@ -9,12 +9,12 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- -------------------------------------------------------------------------
 -- 1. Table: services
--- Represents registered Growvion sub-services / platforms (Multi-tenant context).
+-- Represents registered Growvex sub-services / platforms (Multi-tenant context).
 -- -------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS public.services (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name TEXT NOT NULL UNIQUE,                       -- e.g., 'Growvion Landing', 'Impact Visuals', 'Academy'
-    slug TEXT NOT NULL UNIQUE,                       -- URL-friendly identifier (e.g., 'growvion', 'impactvisuals')
+    name TEXT NOT NULL UNIQUE,                       -- e.g., 'Growvex Landing', 'Impact Visuals', 'Academy'
+    slug TEXT NOT NULL UNIQUE,                       -- URL-friendly identifier (e.g., 'growvex', 'impactvisuals')
     description TEXT,
     created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.services (
 
 -- Register default services
 INSERT INTO public.services (name, slug, description) VALUES
-('Growvion Landing', 'growvion', 'Main startup marketing website'),
+('Growvex Landing', 'growvex', 'Main startup marketing website'),
 ('Impact Visuals', 'impactvisuals', 'Content & media production portal')
 ON CONFLICT (slug) DO NOTHING;
 

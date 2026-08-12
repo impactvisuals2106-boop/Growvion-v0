@@ -53,7 +53,7 @@ export default async function handler(req, res) {
         const timezone = req.headers['x-vercel-ip-timezone'] || 'Asia/Kolkata';
 
         // Resolve service_id from serviceSlug
-        const slug = serviceSlug || 'growvion';
+        const slug = serviceSlug || 'growvex';
         const { data: service, error: svcError } = await supabase
             .from('services')
             .select('id')

@@ -190,7 +190,7 @@ const AdminDashboard = () => {
                     className="login-card glass-panel"
                 >
                     <div className="logo-center">
-                        <img src="/Growvion-logo-white.png" alt="Growvion" className="brand-logo-img" />
+                        <img src="/Growvex-logo-white.png" alt="Growvex" className="brand-logo-img" />
                         <span className="badge-admin">Analytics System Portal</span>
                     </div>
 
@@ -250,7 +250,7 @@ const AdminDashboard = () => {
             {/* Sidebar navigation */}
             <aside className="sidebar">
                 <div className="sidebar-brand">
-                    <img src="/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
+                    <img src="/Growvex-logo-white.png" alt="Growvex" className="logo-img" />
                     <span className="badge-side">Admin BI</span>
                 </div>
 

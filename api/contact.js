@@ -46,7 +46,7 @@ export default async function handler(req, res) {
         const sanitizedMessage = message.replace(/<[^>]*>/g, '').trim();
 
         // Resolve service context slug
-        const slug = serviceSlug || 'growvion';
+        const slug = serviceSlug || 'growvex';
         const { data: service, error: svcError } = await supabase
             .from('services')
             .select('id')
@@ -108,7 +108,7 @@ export default async function handler(req, res) {
             }
         }
 
-        const subject = `📥 Growvion Contact Form Submission - ${sanitizedName}`;
+        const subject = `📥 Growvex Contact Form Submission - ${sanitizedName}`;
         const bodyText = `New contact form submission received.
 Lead Details:
 - Submission ID: ${submission.id}

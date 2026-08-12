@@ -1,6 +1,6 @@
-# Growvion Website
+# Growvex Website
 
-This is the official front-end repository for the Growvion startup website. It is built using **React** (via Vite) and **Vanilla CSS** for a highly customized, sleek, and dynamic aesthetic (glassmorphism, neon accents).
+This is the official front-end repository for the Growvex startup website. It is built using **React** (via Vite) and **Vanilla CSS** for a highly customized, sleek, and dynamic aesthetic (glassmorphism, neon accents).
 
 ## Prerequisites
 

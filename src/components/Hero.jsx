@@ -70,7 +70,7 @@ const Hero = () => {
           </motion.h1>
           
           <motion.p variants={itemVariants} className="hero-subtitle">
-            Growvion is a forward-thinking umbrella organization housing cutting-edge services. From high-impact visual marketing to exclusive upcoming ventures, we are here to redefine the standard.
+            Growvex is a forward-thinking umbrella organization housing cutting-edge services. From high-impact visual marketing to exclusive upcoming ventures, we are here to redefine the standard.
           </motion.p>
           
           <motion.div variants={itemVariants} className="hero-actions">

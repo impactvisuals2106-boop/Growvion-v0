@@ -5,7 +5,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn(
-    '[Growvion Client SDK]: Warning: VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY is missing. ' +
+    '[Growvex Client SDK]: Warning: VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY is missing. ' +
     'The Supabase SDK client will initialize as null and run in offline/fallback mode.'
   );
 }

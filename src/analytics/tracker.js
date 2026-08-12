@@ -1,5 +1,5 @@
 /**
- * GROWVION CLIENT TELEMETRY SDK (tracker.js)
+ * GROWVEX CLIENT TELEMETRY SDK (tracker.js)
  * Automatically tracks user info, geolocation headers, sessions, duration, scroll depth, and page metrics.
  */
 
@@ -97,7 +97,7 @@ function getTrafficSource() {
 }
 
 // Client class mapping analytics functions
-class GrowvionTracker {
+class GrowvexTracker {
     constructor() {
         this.visitorId = getVisitorId();
         this.sessionId = null;
@@ -123,7 +123,7 @@ class GrowvionTracker {
             const res = await fetch(apiUrl, opts);
             return await res.json();
         } catch (e) {
-            console.warn('[Growvion Tracker Telemetry Send Failure]', e);
+            console.warn('[Growvex Tracker Telemetry Send Failure]', e);
             return null;
         }
     }
@@ -253,6 +253,6 @@ class GrowvionTracker {
 }
 
 // Export singleton instance
-const tracker = new GrowvionTracker();
+const tracker = new GrowvexTracker();
 export default tracker;
-export { GrowvionTracker };
+export { GrowvexTracker };

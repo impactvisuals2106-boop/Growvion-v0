@@ -64,7 +64,7 @@ const Services = () => {
           className="section-header"
         >
           <h2 className="section-title">Our <span className="text-gradient">Umbrella</span> Services</h2>
-          <p className="section-subtitle">Discover the portfolio of cutting-edge solutions incubated under the Growvion ecosystem.</p>
+          <p className="section-subtitle">Discover the portfolio of cutting-edge solutions incubated under the Growvex ecosystem.</p>
         </motion.div>
 
         <motion.div

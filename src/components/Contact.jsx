@@ -29,15 +29,15 @@ const Contact = () => {
     {
       icon: <Camera size={24} />,
       title: 'Instagram',
-      value: '@growvion.india',
-      link: 'https://www.instagram.com/growvion.india?igsh=MWVxOTk3azh6cXZ0YQ==',
+      value: '@growvex.india',
+      link: 'https://www.instagram.com/growvex.india?igsh=MWVxOTk3azh6cXZ0YQ==',
       label: 'Follow Us',
       color: 'var(--accent-3)'
     },
     {
       icon: <Users size={24} />,
       title: 'LinkedIn',
-      value: 'Growvion',
+      value: 'Growvex',
       link: '#',
       label: 'Connect',
       color: 'var(--accent-1)'
@@ -216,7 +216,7 @@ const Contact = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Please give your feedback about our growvion *"
+                        placeholder="Please give your feedback about Growvex *"
                         rows="4"
                         required
                         disabled={formStatus === 'loading'}

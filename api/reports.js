@@ -195,7 +195,7 @@ export default async function handler(req, res) {
             textLines.push('BT');
             textLines.push('/F1 20 Tf');
             textLines.push('50 780 Td');
-            textLines.push(`(GROWVION BUSINESS INTELLIGENCE SYSTEM) Tj`);
+            textLines.push(`(GROWVEX BUSINESS INTELLIGENCE SYSTEM) Tj`);
             
             textLines.push('/F1 12 Tf');
             textLines.push('0 -30 Td');

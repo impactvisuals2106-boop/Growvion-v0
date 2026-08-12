@@ -18,7 +18,7 @@ const Footer = () => {
               data-track="Footer: Brand Logo"
               whileHover={{ scale: 1.05 }}
             >
-              <img src="/Growvion-logo-white.png" alt="Growvion" className="logo-img" />
+              <img src="/Growvex-logo-white.png" alt="Growvex" className="logo-img" />
             </motion.a>
             <p className="footer-description">
               A forward-thinking umbrella startup launching the next generation of innovative services. We redefine standards through excellence and vision.
@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="copyright">
-            <p>&copy; {new Date().getFullYear()} Growvion. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Growvex. All rights reserved.</p>
           </div>
           
           <div className="social-links">
@@ -65,7 +65,7 @@ const Footer = () => {
               <Users size={20} />
             </motion.a>
             <motion.a 
-              href="https://www.instagram.com/growvion.india?igsh=MWVxOTk3azh6cXZ0YQ==" 
+              href="https://www.instagram.com/growvex.india?igsh=MWVxOTk3azh6cXZ0YQ==" 
               target="_blank" 
               rel="noopener noreferrer" 
               data-track="Footer Social: Instagram"
